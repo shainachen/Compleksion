@@ -1,0 +1,6 @@
+framework module Pods_ComplekshunTests {
+  umbrella header "Pods-ComplekshunTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

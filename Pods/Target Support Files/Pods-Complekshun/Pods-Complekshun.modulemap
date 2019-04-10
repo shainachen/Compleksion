@@ -1,0 +1,6 @@
+framework module Pods_Complekshun {
+  umbrella header "Pods-Complekshun-umbrella.h"
+
+  export *
+  module * { export * }
+}
