@@ -8,6 +8,7 @@ target 'Complekshun' do
   # Pods for Complekshun
 
   pod 'Firebase/Core'
+  pod 'FirebaseUI'
 
   target 'ComplekshunTests' do
     inherit! :search_paths
