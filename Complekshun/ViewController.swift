@@ -16,8 +16,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
     @IBAction func createAccount(_ sender: Any) {
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI!.delegate = self
+        let providers: [FUIAuthProvider] = [
+            FUIEmailAuth()
+        ]
+        authUI!.providers = providers
+        
+        let authViewController = authUI!.authViewController()
+        present(authViewController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func login(_ sender: Any) {
         let authUI = FUIAuth.defaultAuthUI()
         authUI!.delegate = self
         let providers: [FUIAuthProvider] = [
