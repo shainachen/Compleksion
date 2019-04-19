@@ -7,15 +7,9 @@
 //
 
 import UIKit
-import FirebaseUI
+//import FirebaseUI
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
+class ViewController: UIViewController{
 
     @IBAction func createAccount(_ sender: Any) {
         let authUI = FUIAuth.defaultAuthUI()
