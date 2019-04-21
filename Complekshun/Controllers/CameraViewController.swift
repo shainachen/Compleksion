@@ -30,7 +30,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let info = info[UIImagePickerController.InfoKey.originalImage]
         self.selfie = info as? UIImage
         dismiss(animated: true, completion: nil)
-        
     }
 }
 

@@ -105,6 +105,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6E09E1E8226D2A0B00376E33 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EFD365522694A6000A83EA3 /* CameraViewController.swift */,
+				6ED8D6A7225C7BC000B111C6 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		6ED8D699225C7BC000B111C6 = {
 			isa = PBXGroup;
 			children = (
@@ -130,10 +139,9 @@
 		6ED8D6A4225C7BC000B111C6 /* Complekshun */ = {
 			isa = PBXGroup;
 			children = (
+				6E09E1E8226D2A0B00376E33 /* Controllers */,
 				6ED8D6A5225C7BC000B111C6 /* AppDelegate.swift */,
-				6ED8D6A7225C7BC000B111C6 /* ViewController.swift */,
 				6ED8D6A9225C7BC000B111C6 /* Main.storyboard */,
-				6EFD365522694A6000A83EA3 /* CameraViewController.swift */,
 				6ED8D6AC225C7BC400B111C6 /* Assets.xcassets */,
 				6ED8D6AE225C7BC400B111C6 /* LaunchScreen.storyboard */,
 				6ED8D6B1225C7BC400B111C6 /* Info.plist */,

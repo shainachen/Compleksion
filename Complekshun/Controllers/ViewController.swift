@@ -49,7 +49,7 @@ extension ViewController: FUIAuthDelegate{
             return
         }
         
-        performSegue(withIdentifier: "toPersonalInfo", sender: self)
+        performSegue(withIdentifier: "showTabView", sender: self)
     }
 }
 
