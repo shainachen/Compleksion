@@ -40,6 +40,14 @@ class ViewController: UIViewController {
         let authViewController = authUI!.authViewController()
         present(authViewController, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTabView" {
+            if let dest = segue.destination as? AllAboutYouController {
+                dest.userID = Auth.auth().currentUser?.uid
+            }
+        }
+    }
 }
 
 extension ViewController: FUIAuthDelegate{
@@ -48,7 +56,8 @@ extension ViewController: FUIAuthDelegate{
             // todo: log error
             return
         }
-        
+        let userID = Auth.auth().currentUser?.uid
+        print(userID)
         performSegue(withIdentifier: "showTabView", sender: self)
     }
 }
