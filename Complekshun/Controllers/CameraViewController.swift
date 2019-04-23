@@ -25,11 +25,24 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(picker, animated: true, completion: nil)
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let info = info[UIImagePickerController.InfoKey.originalImage]
         self.selfie = info as? UIImage
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func usePhoto(_ sender: Any) {
+        if selfie != nil {
+            self.performSegue(withIdentifier: "toDailyEntries", sender: selfie)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDailyEntries" {
+            if let dest = segue.destination as? DailyEntryController {
+                dest.img = sender as? UIImage
+            }
+        }
     }
 }
 
