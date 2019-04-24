@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseUI
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -58,8 +59,13 @@ extension ViewController: FUIAuthDelegate{
         }
         let userID = Auth.auth().currentUser?.uid
         print(userID)
-        performSegue(withIdentifier: "showTabView", sender: self)
+        if authDataResult?.additionalUserInfo?.isNewUser == false {
+            performSegue(withIdentifier: "loggedInSegue", sender: self)
+        } else {
+            performSegue(withIdentifier: "showTabView", sender: self)
+        }
     }
+    
 }
 
 

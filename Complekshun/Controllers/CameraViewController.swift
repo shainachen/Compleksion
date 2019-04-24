@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     var selfie: UIImage!
+    
+    @IBOutlet weak var img: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +29,52 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let info = info[UIImagePickerController.InfoKey.originalImage]
-        self.selfie = info as? UIImage
+        if let info = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let optimizedImageData = info.jpegData(compressionQuality: 0.6) {
+            self.selfie = info
+            uploadProfileImage(imageData: optimizedImageData)
+        }
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func usePhoto(_ sender: Any) {
-//        if selfie != nil {
+        //        if selfie != nil {
             self.performSegue(withIdentifier: "toDailyEntries", sender: selfie)
 //        }
+    }
+    
+    func uploadProfileImage(imageData: Data)
+    {
+        let activityIndicator = UIActivityIndicatorView.init(style: .gray)
+        activityIndicator.startAnimating()
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        
+        let date = Date();
+        let day = String(date.description.prefix(10))
+        
+        let storageReference = Storage.storage().reference()
+        let currentUser = Auth.auth().currentUser
+        let storageLocation = currentUser!.uid + "-" + day + ".jpg"
+        let profileImageRef = storageReference.child("users").child(currentUser!.uid).child(storageLocation)
+        
+        let uploadMetaData = StorageMetadata()
+        uploadMetaData.contentType = "image/jpeg"
+        
+        profileImageRef.putData(imageData, metadata: uploadMetaData) { (uploadedImageMeta, error) in
+            
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+            
+            if error != nil
+            {
+                print("Error took place \(String(describing: error?.localizedDescription))")
+                return
+            } else {
+                self.img.image = UIImage(data: imageData)
+                
+                print("Meta data of uploaded image \(String(describing: uploadedImageMeta))")
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
