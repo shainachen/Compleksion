@@ -32,9 +32,9 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func usePhoto(_ sender: Any) {
-        if selfie != nil {
+//        if selfie != nil {
             self.performSegue(withIdentifier: "toDailyEntries", sender: selfie)
-        }
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -9,6 +9,5 @@
 import UIKit
 
 class ReportControllerCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var text: UITextView!
+    @IBOutlet weak var image: UIImageView!
 }

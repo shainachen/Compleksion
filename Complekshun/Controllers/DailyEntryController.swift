@@ -22,12 +22,12 @@ class DailyEntryController: UIViewController {
         super.viewDidLoad()
     }
     
-     @IBAction func submitDailyEntry(_ sender: Any) {
+     @IBAction func submitDailyEntry(_ sender: UIButton) {
         //todo: change categories and medications to different data structure
         let db = Firestore.firestore()
         let date = Date();
         let day = String(date.description.prefix(10))
-        db.collection("entryData").document(day).setData([
+/*        db.collection("entryData").document(day).setData([
             "calories": calories.text,
             "categories": categories.text,
             "medications": medications.text,
@@ -40,5 +40,18 @@ class DailyEntryController: UIViewController {
                 print("Document successfully written!")
             }
         }
+*/
+        let alert = UIAlertController(
+            title: "Entry Posted!",
+            message: "",
+            preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+            (_)in
+            self.performSegue(withIdentifier: "unwindToReport", sender: self)
+        })
+        
+        alert.addAction(OKAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
