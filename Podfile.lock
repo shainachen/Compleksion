@@ -11,6 +11,9 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.2):
     - BoringSSL-GRPC/Interface (= 0.0.2)
   - BoringSSL-GRPC/Interface (0.0.2)
+  - Charts (3.2.2):
+    - Charts/Core (= 3.2.2)
+  - Charts/Core (3.2.2)
   - FBSDKCoreKit (4.44.0):
     - Bolts (~> 1.9)
   - FBSDKLoginKit (4.44.0):
@@ -184,6 +187,7 @@ PODS:
     - TwitterCore (>= 3.2.0)
 
 DEPENDENCIES:
+  - Charts
   - Firebase/Core
   - Firebase/Storage
   - FirebaseUI
@@ -192,6 +196,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Bolts
     - BoringSSL-GRPC
+    - Charts
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -221,6 +226,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
+  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   FBSDKCoreKit: 8bcd4503afe43f28823c2175a6142a7f50f1bf28
   FBSDKLoginKit: 93c5a407ab1a6a17b1b38cff57e89991f714d878
   Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
@@ -247,6 +253,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 6da2ab573458708f16728cdc104b19647837b472
+PODFILE CHECKSUM: 57da25a60511c96974fa4521e2e6769fca0ca802
 
 COCOAPODS: 1.6.1

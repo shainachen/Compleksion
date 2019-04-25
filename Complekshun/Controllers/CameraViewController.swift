@@ -13,12 +13,17 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     var selfie: UIImage!
     
+    @IBOutlet weak var acne: UISlider!
     @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var acneCount: UILabel!
+    var acneCountInteger: Int = 0
     
+    @IBAction func acneValueChanged(_ sender: UISlider) {
+        acneCountInteger = Int(sender.value)
+        acneCount.text = "\(acneCountInteger)"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func selfie(_ sender: Any) {
@@ -81,6 +86,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         if segue.identifier == "toDailyEntries" {
             if let dest = segue.destination as? DailyEntryController {
                 dest.img = sender as? UIImage
+                dest.numAcne = acneCountInteger
             }
         }
     }

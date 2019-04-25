@@ -10,6 +10,7 @@ target 'Complekshun' do
   pod 'Firebase/Core'
   pod 'FirebaseUI'
   pod 'Firebase/Storage'
+  pod 'Charts'
 
   target 'ComplekshunTests' do
     inherit! :search_paths
