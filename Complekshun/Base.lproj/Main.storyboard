@@ -516,35 +516,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Weekly Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxY-JA-kzl">
-                                <rect key="frame" x="107" y="60" width="160" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nk-tO-A04" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="67" y="81" width="241" height="179"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3O7-p6-9UR" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="67" y="270" width="241" height="127"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-8g-rMs" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="395" width="171" height="207"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0W1-XR-77E" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="210" y="395" width="149" height="212"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Weekly Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxY-JA-kzl">
+                                <rect key="frame" x="104" y="35" width="166" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ldh-Xr-VAv">
-                                <rect key="frame" x="67" y="369" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nsc-8b-s3b">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nsc-8b-s3b" id="qPm-rj-Hyr">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1nk-tO-A04" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="67" y="145" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EgR-8g-rMs" firstAttribute="top" secondItem="3O7-p6-9UR" secondAttribute="bottom" constant="-2" id="06S-eC-cuF"/>
+                            <constraint firstItem="ogu-k7-X0c" firstAttribute="trailing" secondItem="3O7-p6-9UR" secondAttribute="trailing" constant="67" id="0oz-KN-Ca3"/>
+                            <constraint firstItem="0W1-XR-77E" firstAttribute="leading" secondItem="EgR-8g-rMs" secondAttribute="trailing" constant="23" id="1Bu-HZ-rnP"/>
+                            <constraint firstItem="ogu-k7-X0c" firstAttribute="trailing" secondItem="0W1-XR-77E" secondAttribute="trailing" constant="16" id="5NE-vh-DzB"/>
+                            <constraint firstItem="xxY-JA-kzl" firstAttribute="centerX" secondItem="ogu-k7-X0c" secondAttribute="centerX" id="5fl-XG-LM6"/>
+                            <constraint firstItem="xxY-JA-kzl" firstAttribute="top" secondItem="ogu-k7-X0c" secondAttribute="top" constant="10" id="6JL-ot-zJG"/>
+                            <constraint firstItem="ogu-k7-X0c" firstAttribute="trailing" secondItem="1nk-tO-A04" secondAttribute="trailing" constant="67" id="CFB-9a-HG2"/>
+                            <constraint firstItem="3O7-p6-9UR" firstAttribute="top" secondItem="1nk-tO-A04" secondAttribute="bottom" constant="10" id="D39-BS-tiM"/>
+                            <constraint firstItem="ogu-k7-X0c" firstAttribute="bottom" secondItem="0W1-XR-77E" secondAttribute="bottom" constant="11" id="EeC-Cn-MOy"/>
+                            <constraint firstItem="ogu-k7-X0c" firstAttribute="bottom" secondItem="3O7-p6-9UR" secondAttribute="bottom" constant="221" id="FRF-SY-pLz"/>
+                            <constraint firstItem="0W1-XR-77E" firstAttribute="top" secondItem="3O7-p6-9UR" secondAttribute="bottom" constant="-2" id="GVD-GP-yC6"/>
+                            <constraint firstItem="ogu-k7-X0c" firstAttribute="bottom" secondItem="EgR-8g-rMs" secondAttribute="bottom" constant="16" id="JPn-nv-lUn"/>
+                            <constraint firstItem="0W1-XR-77E" firstAttribute="leading" secondItem="uUo-Yo-IAg" secondAttribute="leading" constant="210" id="RIz-Uk-ITp"/>
+                            <constraint firstItem="3O7-p6-9UR" firstAttribute="leading" secondItem="ogu-k7-X0c" secondAttribute="leading" constant="67" id="ZDN-Zh-wSo"/>
+                            <constraint firstItem="3O7-p6-9UR" firstAttribute="centerY" secondItem="uUo-Yo-IAg" secondAttribute="centerY" id="cOR-4s-ZF8"/>
+                            <constraint firstItem="1nk-tO-A04" firstAttribute="leading" secondItem="ogu-k7-X0c" secondAttribute="leading" constant="67" id="eis-DY-I3e"/>
+                            <constraint firstItem="1nk-tO-A04" firstAttribute="centerX" secondItem="ogu-k7-X0c" secondAttribute="centerX" id="fhC-bb-Rck"/>
+                            <constraint firstItem="EgR-8g-rMs" firstAttribute="leading" secondItem="ogu-k7-X0c" secondAttribute="leading" constant="16" id="gCF-w1-fEh"/>
+                            <constraint firstItem="3O7-p6-9UR" firstAttribute="centerX" secondItem="ogu-k7-X0c" secondAttribute="centerX" id="xWG-cv-0dH"/>
+                            <constraint firstItem="1nk-tO-A04" firstAttribute="top" secondItem="xxY-JA-kzl" secondAttribute="bottom" constant="30" id="xeF-9I-Ub4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ogu-k7-X0c"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -559,11 +576,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="barChartView" destination="1nk-tO-A04" id="n9B-Te-ea1"/>
+                        <outlet property="caloriesBarChartView" destination="EgR-8g-rMs" id="h3b-Pd-trO"/>
+                        <outlet property="pieChartView" destination="3O7-p6-9UR" id="16S-wb-WZ5"/>
+                        <outlet property="sleepBarChartView" destination="0W1-XR-77E" id="SAr-Tg-lAe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caf-uS-SB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2062" y="579"/>
+            <point key="canvasLocation" x="2061.5999999999999" y="578.86056971514245"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zv3-5b-RTz">

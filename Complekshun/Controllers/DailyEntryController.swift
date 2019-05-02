@@ -109,7 +109,7 @@ class DailyEntryController: UIViewController {
      @IBAction func submitDailyEntry(_ sender: UIButton) {
         //todo: change categories and medications to different data structure
         let db = Firestore.firestore()
-        let date = Date();
+        let date = Date()
         let day = String(date.description.prefix(10))
         let userID = Auth.auth().currentUser?.uid
         let documentName = day + ", " + userID!
