@@ -11,6 +11,7 @@ target 'Complekshun' do
   pod 'FirebaseUI'
   pod 'Firebase/Storage'
   pod 'Charts'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   target 'ComplekshunTests' do
     inherit! :search_paths

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseUI
 import Firebase
+import ChameleonFramework
 
 class ViewController: UIViewController {
 
