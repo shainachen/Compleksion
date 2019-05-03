@@ -8,9 +8,12 @@
 
 import UIKit
 import Firebase
+import ChameleonFramework
+
 
 class AllAboutYouController: UIViewController {
     
+    @IBOutlet weak var allAboutYou: UILabel!
     @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var height: UITextField!
     @IBOutlet weak var age: UITextField!
@@ -21,6 +24,13 @@ class AllAboutYouController: UIViewController {
         super.viewDidLoad()
         print("allaboutcontroller id: ", userID)
         // Do any addi\tional setup after loading the view.
+        
+        view.backgroundColor = FlatSand()
+        weight.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
+        height.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
+        allAboutYou.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
+        age.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
+        sex.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
     }
     
     @IBAction func SubmitPersonalInfo(_ sender: Any) {

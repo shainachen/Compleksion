@@ -18,31 +18,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Complekshion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuT-if-YBY">
-                                <rect key="frame" x="47" y="94" width="275" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Skin's Best Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-JZ-yRm">
-                                <rect key="frame" x="99.5" y="157" width="176" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your Skin's Best Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-JZ-yRm">
+                                <rect key="frame" x="7" y="144" width="358" height="49"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYC-u7-Mhg">
                                 <rect key="frame" x="-1" y="245" width="375" height="57"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="50"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
                                     <action selector="createAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZeI-lo-dyg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Complekshun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuT-if-YBY">
+                                <rect key="frame" x="1" y="55" width="374" height="98"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="75"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.89126098155975342" green="0.3545563817024231" blue="0.39968371391296387" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="IuT-if-YBY" secondAttribute="bottom" constant="-134" id="D6w-JZ-1Md"/>
-                            <constraint firstItem="BYC-u7-Mhg" firstAttribute="top" secondItem="yMg-JZ-yRm" secondAttribute="bottom" constant="67" id="WJH-hX-UZw"/>
+                            <constraint firstItem="BYC-u7-Mhg" firstAttribute="top" secondItem="yMg-JZ-yRm" secondAttribute="bottom" constant="150" id="WJH-hX-UZw"/>
                             <constraint firstItem="BYC-u7-Mhg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ahC-Yl-lT7"/>
                             <constraint firstItem="yMg-JZ-yRm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eee-qw-3Sj"/>
                             <constraint firstItem="IuT-if-YBY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kNX-OD-E5u"/>
@@ -51,13 +51,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="compleksion" destination="IuT-if-YBY" id="fA3-Wu-sxl"/>
+                        <outlet property="enter" destination="BYC-u7-Mhg" id="9NC-8d-wjG"/>
+                        <outlet property="yourSkinsBestFriend" destination="yMg-JZ-yRm" id="sVm-3O-lhA"/>
                         <segue destination="is1-oj-krL" kind="show" identifier="showTabView" id="7Ir-Nr-xuq"/>
                         <segue destination="PBx-9k-p98" kind="show" identifier="loggedInSegue" id="a09-7q-c75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-486" y="111"/>
+            <point key="canvasLocation" x="-487.19999999999999" y="110.19490254872565"/>
         </scene>
         <!--All About You-->
         <scene sceneID="eyX-kb-Bwk">
@@ -130,6 +133,7 @@
                     </view>
                     <connections>
                         <outlet property="age" destination="Rvd-I3-AO7" id="p0l-Pv-Hou"/>
+                        <outlet property="allAboutYou" destination="ffi-4l-VRv" id="PoH-3W-JOI"/>
                         <outlet property="height" destination="d23-HA-gKC" id="mmP-va-bff"/>
                         <outlet property="sex" destination="Utz-E8-mi9" id="4WC-3O-Xqu"/>
                         <outlet property="weight" destination="KQ1-3m-IzS" id="AP3-TO-Zb3"/>
@@ -613,6 +617,6 @@
         <image name="User" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a09-7q-c75"/>
+        <segue reference="XQG-pQ-htj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,9 +13,16 @@ import ChameleonFramework
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var compleksion: UILabel!
+    @IBOutlet weak var yourSkinsBestFriend: UILabel!
+    @IBOutlet weak var enter: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        compleksion.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
+        yourSkinsBestFriend.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
+    enter.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: true), for: .normal)
+        view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: UIScreen.main.bounds, colors: [FlatWatermelon(), FlatYellow()])
     }
 
     @IBAction func createAccount(_ sender: Any) {
@@ -59,7 +66,6 @@ extension ViewController: FUIAuthDelegate{
             return
         }
         let userID = Auth.auth().currentUser?.uid
-        print(userID)
         if authDataResult?.additionalUserInfo?.isNewUser == false {
             performSegue(withIdentifier: "loggedInSegue", sender: self)
         } else {
