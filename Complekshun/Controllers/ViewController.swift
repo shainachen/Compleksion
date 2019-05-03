@@ -21,8 +21,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         compleksion.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
         yourSkinsBestFriend.textColor = ContrastColorOf(view.backgroundColor!, returnFlat: true)
-    enter.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: true), for: .normal)
-        view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: UIScreen.main.bounds, colors: [FlatWatermelon(), FlatYellow()])
+//    enter.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: true), for: .normal)
+        view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: UIScreen.main.bounds, colors: [FlatWatermelon(), FlatSand()])
     }
 
     @IBAction func createAccount(_ sender: Any) {
