@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import Firebase
 
 class ImageTile: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
@@ -22,7 +23,6 @@ class ReportController: UIViewController {
         photoGrid.delegate = self
         photoGrid.dataSource = self
     }
-    
     @IBAction func unwindToReportController(segue:UIStoryboardSegue) {
         
     }
@@ -35,14 +35,14 @@ extension ReportController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageTile", for: indexPath) as! ImageTile
         let storage = Storage.storage()
-        let gsReference = storage.reference(forURL: "gs://compleksion.appspot.com/users/wDTxsJcoMiO19UKE3HyqQaVVmBD3")
-        let reference = gsReference.child("1.jpeg")
+        let gsReference = storage.reference(forURL: "gs://compleksion.appspot.com/users/")
+        let reference = gsReference.child("nyAVk5dQiYcIpIMo6xH4UtPoDdN2/nyAVk5dQiYcIpIMo6xH4UtPoDdN2-2019-05-06.jpg")
         let placeholderImage = UIImage(named: "thinking")
         cell.image.sd_setImage(with: reference, placeholderImage: placeholderImage)
         print("jim")
