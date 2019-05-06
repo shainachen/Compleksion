@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-
+    
     var selfie: UIImage!
     
     @IBOutlet weak var acne: UISlider!
@@ -24,13 +24,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.invokeSelfie()
     }
     
-    @IBAction func selfie(_ sender: Any) {
+    func invokeSelfie() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .camera
-        self.present(picker, animated: true, completion: nil)
+        picker.cameraDevice = .front
+        self.present(picker, animated: false, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -39,12 +41,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             uploadProfileImage(imageData: optimizedImageData)
         }
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func usePhoto(_ sender: Any) {
-        //        if selfie != nil {
-            self.performSegue(withIdentifier: "toDailyEntries", sender: selfie)
-//        }
     }
     
     func uploadProfileImage(imageData: Data)
@@ -82,6 +78,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+    @IBAction func nextStep(_ sender: Any) {
+        if selfie != nil {
+            self.performSegue(withIdentifier: "toDailyEntries", sender: selfie)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDailyEntries" {
             if let dest = segue.destination as? DailyEntryController {
@@ -91,5 +93,4 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
 }
-
 
