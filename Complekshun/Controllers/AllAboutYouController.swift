@@ -15,21 +15,19 @@ class AllAboutYouController: UIViewController {
     @IBOutlet weak var height: UITextField!
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var sex: UITextField!
-    var userID: String?
+    var userID: String = UserModel.globalUserModel.checkUserID()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("allaboutcontroller id: ", userID)
-        // Do any addi\tional setup after loading the view.
     }
     
     @IBAction func SubmitPersonalInfo(_ sender: Any) {
         let db = Firestore.firestore()
-        db.collection("loginData").document(userID ?? "notLoggedIn").setData([
-            "weight": weight.text,
-            "height": height.text,
-            "age": age.text,
-            "sex": sex.text
+        db.collection("loginData").document(self.userID).setData([
+            "weight": weight.text ?? 0,
+            "height": height.text ?? 0,
+            "age": age.text ?? 0,
+            "sex": sex.text ?? 0
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -37,9 +35,5 @@ class AllAboutYouController: UIViewController {
                 print("Document successfully written!")
             }
         }
-//        db.collection["users"].document["]
     }
-    
-    
-    
 }

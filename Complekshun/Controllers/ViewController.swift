@@ -42,13 +42,13 @@ class ViewController: UIViewController {
         present(authViewController, animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showTabView" {
-            if let dest = segue.destination as? AllAboutYouController {
-                dest.userID = Auth.auth().currentUser?.uid
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showTabView" {
+//            if let dest = segue.destination as? AllAboutYouController {
+//                dest.userID = Auth.auth().currentUser?.uid
+//            }
+//        }
+//    }
 }
 
 extension ViewController: FUIAuthDelegate{
@@ -58,14 +58,13 @@ extension ViewController: FUIAuthDelegate{
             return
         }
         let userID = Auth.auth().currentUser?.uid
-        print(userID)
+        print("USERID: \(String(describing: userID))")
         if authDataResult?.additionalUserInfo?.isNewUser == false {
             performSegue(withIdentifier: "loggedInSegue", sender: self)
         } else {
             performSegue(withIdentifier: "showTabView", sender: self)
         }
     }
-    
 }
 
 

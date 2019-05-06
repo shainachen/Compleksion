@@ -24,13 +24,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.invokeSelfie()
     }
     
-    @IBAction func selfie(_ sender: Any) {
+    func invokeSelfie() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .camera
-        self.present(picker, animated: true, completion: nil)
+        picker.cameraDevice = .front
+        self.present(picker, animated: false, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -39,12 +41,6 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
             uploadProfileImage(imageData: optimizedImageData)
         }
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func usePhoto(_ sender: Any) {
-        //        if selfie != nil {
-            self.performSegue(withIdentifier: "toDailyEntries", sender: selfie)
-//        }
     }
     
     func uploadProfileImage(imageData: Data)
@@ -79,6 +75,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
                 print("Meta data of uploaded image \(String(describing: uploadedImageMeta))")
             }
+        }
+    }
+    
+    @IBAction func nextStep(_ sender: Any) {
+        if selfie != nil {
+            self.performSegue(withIdentifier: "toDailyEntries", sender: selfie)
         }
     }
     
