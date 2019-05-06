@@ -453,6 +453,7 @@
                             <constraint firstItem="TC8-vv-Yez" firstAttribute="top" secondItem="TrK-F1-CAu" secondAttribute="top" constant="43" id="QsO-he-dHx"/>
                             <constraint firstItem="TrK-F1-CAu" firstAttribute="trailing" secondItem="jMH-OO-W0O" secondAttribute="trailing" constant="10" id="RV4-GH-xah"/>
                             <constraint firstItem="TrK-F1-CAu" firstAttribute="bottom" secondItem="jMH-OO-W0O" secondAttribute="bottom" constant="10" id="tvR-em-YGf"/>
+                            <constraint firstItem="jMH-OO-W0O" firstAttribute="width" secondItem="TrK-F1-CAu" secondAttribute="width" id="uc1-B9-b61"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TrK-F1-CAu"/>
                     </view>
@@ -646,8 +647,8 @@
     </scenes>
     <resources>
         <image name="Image" width="225" height="225"/>
-        <image name="Report" width="32" height="32"/>
-        <image name="User" width="32" height="32"/>
+        <image name="Report" width="288" height="288"/>
+        <image name="User" width="288" height="288"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="a09-7q-c75"/>

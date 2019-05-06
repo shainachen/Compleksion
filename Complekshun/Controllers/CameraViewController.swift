@@ -55,7 +55,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         let storageReference = Storage.storage().reference()
         let currentUser = Auth.auth().currentUser
-        let storageLocation = currentUser!.uid + "-" + day + ".jpg"
+//        let storageLocation = currentUser!.uid + "-" + day + ".jpg"
+        let storageLocation = "foo.jpg"
         let profileImageRef = storageReference.child("users").child(currentUser!.uid).child(storageLocation)
         
         let uploadMetaData = StorageMetadata()

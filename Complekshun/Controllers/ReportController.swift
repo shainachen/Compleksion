@@ -23,14 +23,41 @@ class ReportController: UIViewController {
         photoGrid.delegate = self
         photoGrid.dataSource = self
     }
+    
     @IBAction func unwindToReportController(segue:UIStoryboardSegue) {
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("realoading")
+        self.photoGrid.reloadData()
     }
 }
 
-extension ReportController: UICollectionViewDataSource {
+extension ReportController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        let db = Firestore.firestore()
+        var count = 0
+        db.collection("entryData").getDocuments()
+            {
+                (querySnapshot, err) in
+                
+                if let err = err
+                {
+                    print("Error getting documents: \(err)");
+                }
+                else
+                {
+                    for document in querySnapshot!.documents {
+                        count += 1
+                        
+                        print("\(document.documentID) => \(document.data())");
+                    }
+                    
+                    print("Count = \(count)");
+                }
+        }
+        print("Count = \(count)");
         return 1
     }
     
@@ -39,18 +66,12 @@ extension ReportController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("getting new cells")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageTile", for: indexPath) as! ImageTile
-        let storage = Storage.storage()
-        let gsReference = storage.reference(forURL: "gs://compleksion.appspot.com/users/")
-        let reference = gsReference.child("nyAVk5dQiYcIpIMo6xH4UtPoDdN2/nyAVk5dQiYcIpIMo6xH4UtPoDdN2-2019-05-06.jpg")
-        let placeholderImage = UIImage(named: "thinking")
-        cell.image.sd_setImage(with: reference, placeholderImage: placeholderImage)
-        print("jim")
+        cell.image.image = UIImage(named: "george")
         return cell
     }
-}
-
-extension ReportController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //add stuff here?
     }
